@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f4f9856b-ab8b-4fe6-9478-f9f13a75c13e": {
+      "ProjectGuid": "f4f9856b-ab8b-4fe6-9478-f9f13a75c13e",
+      "DisplayName": "PI.Application",
+      "ColorIndex": 0
+    },
+    "87619278-bf76-4f9e-a0fb-9a5bf44857d7": {
+      "ProjectGuid": "87619278-bf76-4f9e-a0fb-9a5bf44857d7",
+      "DisplayName": "PI.Domain",
+      "ColorIndex": 1
+    },
+    "34362111-114b-4a0f-ab47-5b85e5f63bd8": {
+      "ProjectGuid": "34362111-114b-4a0f-ab47-5b85e5f63bd8",
+      "DisplayName": "PI.Application",
+      "ColorIndex": 2
+    },
+    "8852c6e4-7cde-47b5-a577-b0eee61eb251": {
+      "ProjectGuid": "8852c6e4-7cde-47b5-a577-b0eee61eb251",
+      "DisplayName": "PI.Domain",
+      "ColorIndex": 3
+    },
+    "c8f1efd3-bf1a-4601-ad20-6628bddcea85": {
+      "ProjectGuid": "c8f1efd3-bf1a-4601-ad20-6628bddcea85",
+      "DisplayName": "PI.Data",
+      "ColorIndex": 4
+    },
+    "ba0c4c90-0ef6-465d-af9a-35182d7ed293": {
+      "ProjectGuid": "ba0c4c90-0ef6-465d-af9a-35182d7ed293",
+      "DisplayName": "PI.Data-Access",
+      "ColorIndex": 5
+    },
+    "63d66376-d09b-4886-ace1-5c9f8c826df1": {
+      "ProjectGuid": "63d66376-d09b-4886-ace1-5c9f8c826df1",
+      "DisplayName": "PI.CrossCutting",
+      "ColorIndex": 6
+    }
+  },
+  "NextColorIndex": 7
+}
