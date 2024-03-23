@@ -1,15 +1,28 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
+
 namespace PI.Data_Access.Context
 {
-    public class ContextFactory : IDesignTimeDbContextFactory<SqlSContext>
+    public class ContextFactory : IDesignTimeDbContextFactory<MySQLContext>
     {
-        public SqlSContext CreateDbContext(string[] args)
+        private static IConfiguration _configuration;
+        //public ContextFactory(IConfiguration configuration)
+        //{
+        //    _configuration = configuration;
+        //}
+
+        public ContextFactory()
         {
-            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=EFGetStarted.ConsoleApp.NewDb;Trusted_Connection=True;";
-            var optionsBuilder = new DbContextOptionsBuilder<SqlSContext>();
-            optionsBuilder.UseSqlServer(connectionString);
-            return new SqlSContext(optionsBuilder.Options);
+        }
+        public MySQLContext CreateDbContext(string[] args)
+        {
+            var connectionString = "server=127.0.0.1;uid=root;pwd=admin123;database=db_stockmanager";
+            //var connectionString = _configuration.GetSection("ConnectionString").Value;
+            Console.WriteLine(connectionString);
+            var optionsBuilder = new DbContextOptionsBuilder<MySQLContext>();
+            optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            return new MySQLContext(optionsBuilder.Options);
         }
     }
 }

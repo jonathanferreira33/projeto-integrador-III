@@ -1,18 +1,14 @@
-﻿using PI.Domain;
+﻿using PI.Data_Access.Context;
+using PI.Domain;
 using PI.Domain.Entities;
+using PI.Domain.Interfaces;
 
 namespace PI.Data
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : BaseRepository<User>
     {
-        public void Add(User u)
+        public UserRepository(MySQLContext context) : base(context)
         {
-            throw new NotImplementedException();
-        }
-
-        public User? GetByUserName(User u)
-        {
-            throw new NotImplementedException();
         }
     }
 }

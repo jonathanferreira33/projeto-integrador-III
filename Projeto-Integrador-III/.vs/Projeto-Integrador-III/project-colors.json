@@ -35,7 +35,12 @@
       "ProjectGuid": "63d66376-d09b-4886-ace1-5c9f8c826df1",
       "DisplayName": "PI.CrossCutting",
       "ColorIndex": 6
+    },
+    "905149cb-a5a1-4d40-b48c-aa9735a0613c": {
+      "ProjectGuid": "905149cb-a5a1-4d40-b48c-aa9735a0613c",
+      "DisplayName": "UI",
+      "ColorIndex": 7
     }
   },
-  "NextColorIndex": 7
+  "NextColorIndex": 8
 }
