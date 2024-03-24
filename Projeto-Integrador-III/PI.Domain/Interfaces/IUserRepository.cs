@@ -3,9 +3,8 @@
 namespace PI.Domain.Interfaces
 
 {
-    public interface IUserRepository
+    public interface IUserRepository : IRepositoryBase<User>
     {
-        public void Add(User u);
         public User? GetByUserName(User u);
     }
 }

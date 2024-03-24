@@ -1,13 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PI.Data_Access.Mapping;
 using PI.Domain.Entities;
 
 namespace PI.Data_Access.Context
 {
-    public class SqlSContext : DbContext
+    public class MySQLContext : DbContext
     {
         public DbSet<User> Users { get; set; }
 
-        public SqlSContext(DbContextOptions<SqlSContext> options) : base(options)
+        public MySQLContext(DbContextOptions<MySQLContext> options) : base(options)
         {
 
         }
@@ -16,6 +17,7 @@ namespace PI.Data_Access.Context
         protected override void OnModelCreating (ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<User>(new UserMap().Configure);
         }
     }
 }
