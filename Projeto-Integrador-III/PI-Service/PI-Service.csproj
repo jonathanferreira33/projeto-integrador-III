@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PI.CrossCutting\PI.CrossCutting.csproj" />
+    <ProjectReference Include="..\PI.Data\PI.Data.csproj" />
+    <ProjectReference Include="..\PI.Domain\PI.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

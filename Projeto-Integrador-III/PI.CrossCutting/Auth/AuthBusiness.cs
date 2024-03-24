@@ -10,12 +10,12 @@ namespace PI.CrossCutting.Auth
 
         }
 
-        public bool Login(User u)
+        public bool Login(UserEntity u)
         {
             return true;
         }
 
-        public bool LogOut(User u)
+        public bool LogOut(UserEntity u)
         {
             return true;
         }

@@ -6,7 +6,7 @@ namespace PI.Data_Access.Context
 {
     public class MySQLContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
+        public DbSet<UserEntity> Users { get; set; }
 
         public MySQLContext(DbContextOptions<MySQLContext> options) : base(options)
         {
@@ -17,7 +17,7 @@ namespace PI.Data_Access.Context
         protected override void OnModelCreating (ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<User>(new UserMap().Configure);
+            modelBuilder.Entity<UserEntity>(new UserMap().Configure);
         }
     }
 }

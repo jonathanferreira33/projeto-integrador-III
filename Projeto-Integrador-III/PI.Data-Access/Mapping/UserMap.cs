@@ -4,9 +4,9 @@ using PI.Domain.Entities;
 
 namespace PI.Data_Access.Mapping
 {
-    public class UserMap : IEntityTypeConfiguration<User>
+    public class UserMap : IEntityTypeConfiguration<UserEntity>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<UserEntity> builder)
         {
             builder.ToTable("tb_user");
             builder.HasKey(x => x.Id);

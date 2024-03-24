@@ -3,8 +3,8 @@
 namespace PI.Domain.Interfaces
 
 {
-    public interface IUserRepository : IRepositoryBase<User>
+    public interface IUserRepository : IRepositoryBase<UserEntity>
     {
-        public User? GetByUserName(User u);
+        public Task<UserEntity?> GetByUserName(string u);
     }
 }
