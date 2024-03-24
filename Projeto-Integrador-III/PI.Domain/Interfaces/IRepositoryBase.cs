@@ -10,10 +10,9 @@ namespace PI.Domain.Interfaces
         //DQL = "Q" do meio vem de "Query" que sigifica Consulta.
 
         //DDL
-        Task<T> CreateAsync(T item);
 
         //DML
-        Task<T> InsertAsync(T item);
+        Task<T> CreateAsync(T item);
         Task<T> UpdateAsync(T item);
         Task<bool> DeleteAsync(Guid id);
 

@@ -2,11 +2,6 @@
 using PI.Data_Access.Context;
 using PI.Domain.Entities;
 using PI.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PI.Data
 {
@@ -48,7 +43,23 @@ namespace PI.Data
                 if (result == null)
                     return false;
 
+                _dataSet.Remove(result);
+                await _context.SaveChangesAsync();
 
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return true;
+        }
+
+        public async Task<IEnumerable<T>> GetAllAsync()
+        {
+            try
+            {
+                return await _dataSet.ToListAsync();
             }
             catch (Exception e)
             {
@@ -56,19 +67,16 @@ namespace PI.Data
             }
         }
 
-        public Task<IEnumerable<T>> GetAllAsync()
+        public async Task<T> GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<T> GetByIdAsync(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<T> InsertAsync(T item)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                return await _dataSet.SingleOrDefaultAsync(x => x.Id.Equals(id));
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public async Task<T> UpdateAsync(T item)
@@ -93,6 +101,11 @@ namespace PI.Data
             }
 
             return item;
+        }
+
+        public async Task<bool> ExistAsync(Guid id)
+        {
+            return await _dataSet.AnyAsync(x => x.Id.Equals(id));
         }
     }
 }
