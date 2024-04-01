@@ -10,4 +10,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PI.Data-Access\PI.Data-Access.csproj" />
+    <ProjectReference Include="..\PI.Domain\PI.Domain.csproj" />
+    <ProjectReference Include="..\PI.Service\PI.Service.csproj" />
+  </ItemGroup>
+
 </Project>

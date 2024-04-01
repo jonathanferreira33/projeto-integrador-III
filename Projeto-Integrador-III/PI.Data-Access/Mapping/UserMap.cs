@@ -13,7 +13,7 @@ namespace PI.Data_Access.Mapping
             builder.Property(x => x.UserName).IsRequired().HasMaxLength(60);
             builder.HasIndex(x => x.Email).IsUnique();
             builder.Property(x => x.Email).HasMaxLength(60);
-            builder.Property(x => x.Password).HasMaxLength(150);
+            builder.Property(x => x.PassWordCrypt).HasMaxLength(40).IsRequired();
         }
     }
 }

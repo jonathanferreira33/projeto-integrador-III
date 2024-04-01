@@ -2,11 +2,8 @@
 
 namespace UI.Controllers
 {
-    public class AuthController : BaseController
+    public class AuthController : BasePIController
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+
     }
 }

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "8RjY9I7D3TOeP88JUwGmH+RICF86H3puFTtWhWnZC1UlToq5z4mxYUg4Sxf+NC9S8CMckJ0pTdaIq96lVR8g3A==",
+  "dgSpecHash": "ZeTCOZkvOMZ1loXHWxLG1nZzrl00NznUd3CtelLKP9uyxPA3hS2A/fhIKDUSvtC40JPafZXKA829jZPxduLJkg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jonathan\\Desktop\\UNIVESP\\PI\\projeto-integrador-III\\Projeto-Integrador-III\\PI.Data-Access\\PI.Data-Access.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Jonathan\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Jonathan\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Jonathan\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.28\\microsoft.entityframeworkcore.6.0.28.nupkg.sha512",
     "C:\\Users\\Jonathan\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.28\\microsoft.entityframeworkcore.abstractions.6.0.28.nupkg.sha512",

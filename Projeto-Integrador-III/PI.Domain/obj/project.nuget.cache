@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "aRlCx3IY6FX9dgRollcLiz+kp3ds1d3o54JakeJ5EsIGXCTt/IwDj6782ieySUBgAPHoqiwEzGWoA5KkmFAA9g==",
+  "dgSpecHash": "TYnEu3HZ7p9YldXu8v6QmYvNPSb1ahS1Ft4rMPZvQ0F5cyoiAR83PPc0ODXTm1KaxAnrAoVP023ymVoWSFEFag==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jonathan\\Desktop\\UNIVESP\\PI\\projeto-integrador-III\\Projeto-Integrador-III\\PI.Domain\\PI.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Jonathan\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\Jonathan\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Jonathan\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\Jonathan\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\Jonathan\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
