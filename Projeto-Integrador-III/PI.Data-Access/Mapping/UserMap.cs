@@ -8,6 +8,7 @@ namespace PI.Data_Access.Mapping
     {
         public void Configure(EntityTypeBuilder<UserEntity> builder)
         {
+
             builder.ToTable("tb_user");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.UserName).IsRequired().HasMaxLength(60);

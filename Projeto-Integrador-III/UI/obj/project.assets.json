@@ -975,9 +975,10 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "AutoMapper": "13.0.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.28",
-          "MySql.Data": "8.3.0",
-          "PI.Data-Access": "1.0.0"
+          "Microsoft.EntityFrameworkCore": "6.0.28",
+          "MySql.Data": "8.3.0"
         },
         "compile": {
           "bin/placeholder/Auth.dll": {}
@@ -1009,6 +1010,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Auth": "1.0.0",
           "AutoMapper": "13.0.1"
         },
         "compile": {
@@ -3439,6 +3441,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Auth >= 1.0.0",
       "PI.Data-Access >= 1.0.0",
       "PI.Domain >= 1.0.0",
       "PI.Service >= 1.0.0",
@@ -3477,6 +3480,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Users\\Jonathan\\Desktop\\UNIVESP\\PI\\projeto-integrador-III\\Projeto-Integrador-III\\Auth\\Auth.csproj": {
+              "projectPath": "C:\\Users\\Jonathan\\Desktop\\UNIVESP\\PI\\projeto-integrador-III\\Projeto-Integrador-III\\Auth\\Auth.csproj"
+            },
             "C:\\Users\\Jonathan\\Desktop\\UNIVESP\\PI\\projeto-integrador-III\\Projeto-Integrador-III\\PI.Data-Access\\PI.Data-Access.csproj": {
               "projectPath": "C:\\Users\\Jonathan\\Desktop\\UNIVESP\\PI\\projeto-integrador-III\\Projeto-Integrador-III\\PI.Data-Access\\PI.Data-Access.csproj"
             },

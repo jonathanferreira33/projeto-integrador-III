@@ -1,22 +1,20 @@
-﻿using Auth.Interface;
-using Microsoft.EntityFrameworkCore;
+﻿using Auth.Model;
 using Microsoft.Extensions.Caching.Memory;
 using MySql.Data.MySqlClient;
 using System.Data;
 
 namespace Auth.Data
 {
-    internal class AuthRepository : IAuthRepository
+    internal class AuthRepository
     {
         private Context conn;
         private readonly IMemoryCache _memoryCache;
 
-        public AuthRepository(IMemoryCache memoryCache)
+        public AuthRepository()
         {
             conn = new Context();
-            _memoryCache = memoryCache;
         }
-        public async Task<bool> FindByLogin(UserLoginRequest user)
+        public async Task<LoginDTO> FindByLogin(UserLoginRequest user)
         {
 
             try
@@ -25,8 +23,8 @@ namespace Auth.Data
 
                 var query = $@"
                     SELECT * FROM db_stockmanager.tb_user
-                    WHERE Email = {user.Email}
-                    AND PassWordCrypt = {user.Password}
+                    WHERE Email = '{user.Email}'
+                    AND PassWordCrypt = '{user.Password}'
                 ";
 
                 MySqlDataAdapter dados = new MySqlDataAdapter(query, conn.MySQLconn);
@@ -34,18 +32,24 @@ namespace Auth.Data
 
                 dados.Fill(dataTable);
 
-
-
+                if(dataTable.Rows.Count > 0)
+                {
+                    var result = (from rw in dataTable.AsEnumerable()
+                                  select new LoginDTO()
+                                  {
+                                      Email = Convert.ToString(rw["Email"]),
+                                      UserName = Convert.ToString(rw["UserName"])
+                                  });
+                    return result.FirstOrDefault();
+                }
+                return null;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                return false;
+                throw e;
             }
-
 
             conn.disconnect();
-            return true;
-
         }
     }
 }

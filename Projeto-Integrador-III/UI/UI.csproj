@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Auth\Auth.csproj" />
     <ProjectReference Include="..\PI.Data-Access\PI.Data-Access.csproj" />
     <ProjectReference Include="..\PI.Domain\PI.Domain.csproj" />
     <ProjectReference Include="..\PI.Service\PI.Service.csproj" />

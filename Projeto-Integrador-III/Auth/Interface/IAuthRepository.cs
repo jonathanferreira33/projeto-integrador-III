@@ -1,6 +1,6 @@
 ﻿namespace Auth.Interface
 {
-    interface IAuthRepository
+    public interface IAuthRepository
     {
         Task<bool> FindByLogin(UserLoginRequest user);
     }

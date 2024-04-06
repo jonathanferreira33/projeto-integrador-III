@@ -1,14 +1,10 @@
-
-using Auth.Data;
 using Microsoft.EntityFrameworkCore;
 using PI.Data_Access.Context;
-using PI.Data_Access.Mapping;
 using PI.Data_Access.Repository;
 using PI.Domain.Interfaces;
 using PI.Domain.Interfaces.Services;
 using PI.Domain.Mapping;
 using PI.Service;
-using System;
 using System.Reflection;
 using System.Text;
 
@@ -16,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(op => op.RespectBrowserAcceptHeader = false);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
@@ -25,6 +21,7 @@ builder.Services.AddSwaggerGen();
 
 //services
 builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IProductService, ProductService>();
 builder.Services.AddMemoryCache();
 
 var connectionString = builder.Configuration["ConnectionStrings:MySQLConnectionString"];
@@ -37,6 +34,7 @@ builder.Services.AddDbContext<MySQLContext>(
 
 //repository
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 //Automapper
 builder.Services.AddAutoMapper(typeof(MappingProfile));

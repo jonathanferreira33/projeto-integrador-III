@@ -1,13 +1,20 @@
-﻿using Auth.Interface;
+﻿using Auth.Data;
+using Auth.Model;
 
 namespace Auth.Service
 {
-    internal class AuthService : IAuthService
+    public class AuthService 
     {
-        private readonly IAuthRepository _authRepository;
-        public Task<bool> Login(UserLoginRequest user)
+        private AuthRepository _authRepository;
+
+        public AuthService()
         {
-            user.PassWord.GenerateHash();
+            _authRepository = new AuthRepository();
+        }
+
+        public Task<LoginDTO> Login(UserLoginRequest user)
+        {
+            user.Password.GenerateHash();
             return _authRepository.FindByLogin(user);
         }
 
