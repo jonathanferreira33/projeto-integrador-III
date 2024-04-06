@@ -7,6 +7,7 @@ namespace PI.Data_Access.Context
     public class MySQLContext : DbContext
     {
         public DbSet<UserEntity> Users { get; set; }
+        public DbSet<ProductEntity> Products { get; set; }
 
         public MySQLContext(DbContextOptions<MySQLContext> options) : base(options)
         {
@@ -18,6 +19,7 @@ namespace PI.Data_Access.Context
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<UserEntity>(new UserMap().Configure);
+            modelBuilder.Entity<ProductEntity>(new ProductMap().Configure);
         }
     }
 }

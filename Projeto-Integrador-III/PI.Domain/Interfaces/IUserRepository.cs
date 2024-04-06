@@ -5,6 +5,7 @@ namespace PI.Domain.Interfaces
 {
     public interface IUserRepository : IRepositoryBase<UserEntity>
     {
-        public Task<UserEntity?> GetByUserName(string u);
+        public Task<UserEntity?> GetByUserName(string userName);
+        public Task<UserEntity?> GetByEmail(string email);
     }
 }

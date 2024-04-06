@@ -1,13 +1,10 @@
 ﻿using PI.Domain.Entities;
+using PI.Domain.Request;
 
 namespace PI.Domain.Interfaces.Services
 {
-    public interface IUserService
+    public interface IUserService : IBaseService<UserEntity>
     {
-        Task<UserEntity> Get(Guid id);
-        Task<IEnumerable<UserEntity>> GetAll();
-        Task<UserEntity> Post(UserEntity u);
-        Task<UserEntity> Put(UserEntity u);
-        Task<bool> Delete(Guid id);
+        Task<UserEntity> GetByName(string name);
     }
 }

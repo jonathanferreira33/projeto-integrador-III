@@ -8,12 +8,13 @@ namespace PI.Data_Access.Mapping
     {
         public void Configure(EntityTypeBuilder<UserEntity> builder)
         {
+
             builder.ToTable("tb_user");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.UserName).IsRequired().HasMaxLength(60);
             builder.HasIndex(x => x.Email).IsUnique();
             builder.Property(x => x.Email).HasMaxLength(60);
-            builder.Property(x => x.Password).HasMaxLength(150);
+            builder.Property(x => x.PassWordCrypt).HasMaxLength(40).IsRequired();
         }
     }
 }

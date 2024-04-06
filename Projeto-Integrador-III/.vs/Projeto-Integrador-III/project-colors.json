@@ -40,7 +40,37 @@
       "ProjectGuid": "905149cb-a5a1-4d40-b48c-aa9735a0613c",
       "DisplayName": "UI",
       "ColorIndex": 7
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "9b9f8fa8-aa92-4117-a238-fbbfee3236d4": {
+      "ProjectGuid": "9b9f8fa8-aa92-4117-a238-fbbfee3236d4",
+      "DisplayName": "PI-Service",
+      "ColorIndex": 8
+    },
+    "a0b23df6-de40-42d6-8c1a-b6a3a9ff0f4e": {
+      "ProjectGuid": "a0b23df6-de40-42d6-8c1a-b6a3a9ff0f4e",
+      "DisplayName": "PI.Service",
+      "ColorIndex": 9
+    },
+    "21b0a2dc-536f-4668-99cc-791411b481e3": {
+      "ProjectGuid": "21b0a2dc-536f-4668-99cc-791411b481e3",
+      "DisplayName": "PI.Service",
+      "ColorIndex": 10
+    },
+    "9d25c8d1-e20a-48e8-bed3-79168a02855c": {
+      "ProjectGuid": "9d25c8d1-e20a-48e8-bed3-79168a02855c",
+      "DisplayName": "PI.Service",
+      "ColorIndex": 11
+    },
+    "ca2da77f-6f03-4c37-9e82-373414bf9a0c": {
+      "ProjectGuid": "ca2da77f-6f03-4c37-9e82-373414bf9a0c",
+      "DisplayName": "Auth",
+      "ColorIndex": 12
     }
   },
-  "NextColorIndex": 8
+  "NextColorIndex": 13
 }
