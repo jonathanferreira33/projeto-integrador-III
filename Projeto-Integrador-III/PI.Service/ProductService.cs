@@ -5,7 +5,7 @@ using PI.Domain.Request;
 
 namespace PI.Service
 {
-    internal class ProductService : IBaseService<ProductEntity>, IProductService
+    public class ProductService : IBaseService<ProductEntity>, IProductService
     {
         private IProductRepository _repository;
         public ProductService(IProductRepository repository)
@@ -35,6 +35,13 @@ namespace PI.Service
 
         public async Task<ProductEntity> Put(ProductEntity product)
         {
+            return await _repository.UpdateAsync(product);
+        }
+
+        public async Task<ProductEntity> QuantityChange(ProductEntity product, int amount)
+        {
+            product.Amount += amount;
+            product.UpdateAt = DateTime.Now;
             return await _repository.UpdateAsync(product);
         }
 

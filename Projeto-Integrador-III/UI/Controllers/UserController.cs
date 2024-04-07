@@ -80,13 +80,16 @@ namespace UI.Controllers
         }
 
         [HttpPut("edituser")]
-        public async Task<IActionResult> PutUser([FromBody] UserEntity u)
+        public async Task<IActionResult> PutUser([FromBody] Guid userId)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+
             try
             {
-                var result = await _userService.Put(u);
+                var user = await _userService.Get(userId);
+                user.UpdateAt = DateTime.Now;
+                var result = await _userService.Put(user);
                 return Ok(result);
             }
             catch (ArgumentException e)

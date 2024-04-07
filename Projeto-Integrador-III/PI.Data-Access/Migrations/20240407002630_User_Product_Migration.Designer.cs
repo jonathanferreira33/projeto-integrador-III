@@ -11,8 +11,8 @@ using PI.Data_Access.Context;
 namespace PI.Data_Access.Migrations
 {
     [DbContext(typeof(MySQLContext))]
-    [Migration("20240331130233_User_Migration")]
-    partial class User_Migration
+    [Migration("20240407002630_User_Product_Migration")]
+    partial class User_Product_Migration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,42 @@ namespace PI.Data_Access.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.28")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("PI.Domain.Entities.ProductEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("EAN13")
+                        .IsRequired()
+                        .HasMaxLength(13)
+                        .HasColumnType("varchar(13)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EAN13")
+                        .IsUnique();
+
+                    b.ToTable("tb_product", (string)null);
+                });
 
             modelBuilder.Entity("PI.Domain.Entities.UserEntity", b =>
                 {

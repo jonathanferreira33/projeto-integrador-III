@@ -1,6 +1,6 @@
-﻿namespace PI.Domain.Entities
+﻿namespace PI.Domain.Request
 {
-    public class ProductEntity : BaseEntity
+    public class ProductRequest
     {
         public string Name { get; set; }
         public int Amount { get; set; }

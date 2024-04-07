@@ -1,5 +1,6 @@
 ﻿using Auth;
 using AutoMapper;
+using PI.Domain.DTOs;
 using PI.Domain.Entities;
 using PI.Domain.Request;
 
@@ -11,6 +12,8 @@ namespace PI.Domain.Mapping
         {
             CreateMap<UserRequest, UserEntity>().ReverseMap();
             CreateMap<UserLoginRequest, LoginRequest>().ReverseMap();
+            CreateMap<ProductRequest, ProductEntity>().ReverseMap();
+            CreateMap<ProductDto, ProductEntity>().ReverseMap();
         }
     }
 }
