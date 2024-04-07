@@ -41,6 +41,11 @@ namespace PI.Service
         public async Task<ProductEntity> QuantityChange(ProductEntity product, int amount)
         {
             product.Amount += amount;
+
+            if (product.Amount < 0)
+                throw new ArgumentException("Quantidade indisponível");
+
+
             product.UpdateAt = DateTime.Now;
             return await _repository.UpdateAsync(product);
         }

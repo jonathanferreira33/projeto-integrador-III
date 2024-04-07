@@ -37,6 +37,22 @@ namespace UI.Controllers
             }
         }
 
+        [HttpGet("getproductwithid/{id}", Name = "getproductwithid")]
+        public async Task<IActionResult> GetProduct(Guid id)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            try
+            {
+                return Ok(await _service.Get(id));
+            }
+            catch (Exception e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+ 
         [HttpPost("createproduct")]
         public async Task<IActionResult> PostProduct([FromBody] ProductRequest productRequest)
         {
@@ -57,22 +73,6 @@ namespace UI.Controllers
                         result);
             }
             catch (ArgumentException e)
-            {
-                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
-            }
-        }
-
-        [HttpGet("getproductwithid/{id}", Name = "getproductwithid")]
-        public async Task<IActionResult> GetProduct(Guid id)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            try
-            {
-                return Ok(await _service.Get(id));
-            }
-            catch (Exception e)
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
