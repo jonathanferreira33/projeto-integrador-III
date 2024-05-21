@@ -15,12 +15,12 @@ namespace PI.Service
             _repository = userRepository;
         }
 
-        public async Task<bool> Delete(Guid id)
+        public async Task<bool> Delete(int id)
         {
             return await _repository.DeleteAsync(id);
         }
 
-        public async Task<UserEntity> Get(Guid id)
+        public async Task<UserEntity> Get(int id)
         {
             return await _repository.GetByIdAsync(id);
         }

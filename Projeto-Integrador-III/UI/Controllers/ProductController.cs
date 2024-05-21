@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PI.Domain.DTOs;
 using PI.Domain.Entities;
@@ -8,6 +9,7 @@ using System.Net;
 
 namespace UI.Controllers
 {
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : BasePIController
@@ -38,7 +40,7 @@ namespace UI.Controllers
         }
 
         [HttpGet("getproductwithid/{id}", Name = "getproductwithid")]
-        public async Task<IActionResult> GetProduct(Guid id)
+        public async Task<IActionResult> GetProduct(int id)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -52,18 +54,18 @@ namespace UI.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
- 
+
         [HttpPost("createproduct")]
         public async Task<IActionResult> PostProduct([FromBody] ProductRequest productRequest)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var user = _mapper.Map<ProductEntity>(productRequest);
+            var product = _mapper.Map<ProductEntity>(productRequest);
 
             try
             {
-                var result = await _service.Post(user);
+                var result = await _service.Post(product);
 
                 if (result == null)
                     return BadRequest();
@@ -102,18 +104,18 @@ namespace UI.Controllers
         }
 
         [HttpPut("quantitychange")]
-        public async Task<IActionResult> QuantityChange([FromBody] Guid id, int amount)
+        public async Task<IActionResult> QuantityChange([FromBody] ProductRequest productRequest)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             try
             {
-                var product = await _service.Get(id);
+                var product = await _service.Get(productRequest.Id);
                 if (product == null)
                     return NotFound("Produto não encontrado!");
 
-                return Ok(await _service.QuantityChange(product, amount));
+                return Ok(await _service.QuantityChange(product, productRequest.Amount));
             }
             catch (Exception e)
             {

@@ -1,9 +1,11 @@
-﻿namespace PI.Domain.Request
+﻿using PI.Domain.Enum;
+
+namespace PI.Domain.Request
 {
     public class SearchRequest
     {
         public string Name { get; set; }
-        public string Ean13 { get; set; }
+        public ECategory Category { get; set; }
         public string Description { get; set; }
     }
 }

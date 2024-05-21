@@ -14,11 +14,11 @@ namespace PI.Domain.Interfaces
         //DML
         Task<T> CreateAsync(T item);
         Task<T> UpdateAsync(T item);
-        Task<bool> DeleteAsync(Guid id);
+        Task<bool> DeleteAsync(int id);
 
         //DQL
         Task<IEnumerable<T>> GetAllAsync();
-        Task<T> GetByIdAsync(Guid id);
+        Task<T> GetByIdAsync(int id);
 
     }
 }

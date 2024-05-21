@@ -11,8 +11,8 @@ using PI.Data_Access.Context;
 namespace PI.Data_Access.Migrations
 {
     [DbContext(typeof(MySQLContext))]
-    [Migration("20240407002630_User_Product_Migration")]
-    partial class User_Product_Migration
+    [Migration("20240519111943_inicialMigrations")]
+    partial class inicialMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,13 +21,10 @@ namespace PI.Data_Access.Migrations
                 .HasAnnotation("ProductVersion", "6.0.28")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("PI.Domain.Entities.ProductEntity", b =>
+            modelBuilder.Entity("PI.Domain.Entities.CategoryEntity", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<int>("Amount")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("CreateAt")
@@ -37,10 +34,32 @@ namespace PI.Data_Access.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("EAN13")
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tb_category", (string)null);
+                });
+
+            modelBuilder.Entity("PI.Domain.Entities.ProductEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Category")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(13)
-                        .HasColumnType("varchar(13)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -51,17 +70,46 @@ namespace PI.Data_Access.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EAN13")
+                    b.HasIndex("Category")
                         .IsUnique();
 
                     b.ToTable("tb_product", (string)null);
                 });
 
+            modelBuilder.Entity("PI.Domain.Entities.RoleEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Level")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int?>("UserEntityId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserEntityId");
+
+                    b.ToTable("tb_role", (string)null);
+                });
+
             modelBuilder.Entity("PI.Domain.Entities.UserEntity", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("CreateAt")
                         .HasColumnType("datetime(6)");
@@ -90,6 +138,18 @@ namespace PI.Data_Access.Migrations
                         .IsUnique();
 
                     b.ToTable("tb_user", (string)null);
+                });
+
+            modelBuilder.Entity("PI.Domain.Entities.RoleEntity", b =>
+                {
+                    b.HasOne("PI.Domain.Entities.UserEntity", null)
+                        .WithMany("Role")
+                        .HasForeignKey("UserEntityId");
+                });
+
+            modelBuilder.Entity("PI.Domain.Entities.UserEntity", b =>
+                {
+                    b.Navigation("Role");
                 });
 #pragma warning restore 612, 618
         }

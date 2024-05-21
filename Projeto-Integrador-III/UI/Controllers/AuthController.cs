@@ -3,6 +3,7 @@ using AutoMapper;
 using PI.Domain.Request;
 using Auth.Service;
 using Auth;
+using Mysqlx.Session;
 
 namespace UI.Controllers
 {
@@ -34,9 +35,17 @@ namespace UI.Controllers
                 var result = await _auth.Login(user);
 
                 if (result == null)
-                    return StatusCode(401, "Usuário não encontrado");
+                    return StatusCode(401, new
+                    {
+                        authenticated = false,
+                        message = "usuário ou senha incorreto"
+                    });
 
-                return Ok(result);
+                return Ok(new
+                {
+                    authenticated = true,
+                    result = result
+                });
             }
             catch (ArgumentException ex)
             {

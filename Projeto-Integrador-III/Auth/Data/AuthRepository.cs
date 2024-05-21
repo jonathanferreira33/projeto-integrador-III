@@ -32,7 +32,7 @@ namespace Auth.Data
 
                 dados.Fill(dataTable);
 
-                if(dataTable.Rows.Count > 0)
+                if (dataTable.Rows.Count > 0)
                 {
                     var result = (from rw in dataTable.AsEnumerable()
                                   select new LoginDTO()
@@ -48,8 +48,11 @@ namespace Auth.Data
             {
                 throw e;
             }
+            finally
+            {
+                conn.disconnect();
+            }
 
-            conn.disconnect();
         }
     }
 }

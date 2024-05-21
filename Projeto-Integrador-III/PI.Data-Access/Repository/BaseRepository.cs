@@ -22,8 +22,6 @@ namespace PI.Data_Access.Repository
         {
             try
             {
-                item.Id = Guid.NewGuid();
-
                 item.CreateAt = DateTime.Now;
                 _dataSet.Add(item);
 
@@ -37,7 +35,7 @@ namespace PI.Data_Access.Repository
             return item;
         }
 
-        public async Task<bool> DeleteAsync(Guid id)
+        public async Task<bool> DeleteAsync(int id)
         {
             try
             {
@@ -70,7 +68,7 @@ namespace PI.Data_Access.Repository
             }
         }
 
-        public async Task<T> GetByIdAsync(Guid id)
+        public async Task<T> GetByIdAsync(int id)
         {
             try
             {
@@ -106,7 +104,7 @@ namespace PI.Data_Access.Repository
             return item;
         }
 
-        public async Task<bool> ExistAsync(Guid id)
+        public async Task<bool> ExistAsync(int id)
         {
             return await _dataSet.AnyAsync(x => x.Id.Equals(id));
         }

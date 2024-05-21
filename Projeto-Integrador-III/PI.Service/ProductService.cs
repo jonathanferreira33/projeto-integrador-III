@@ -12,12 +12,12 @@ namespace PI.Service
         {
             _repository = repository;
         }
-        public async Task<bool> Delete(Guid id)
+        public async Task<bool> Delete(int id)
         {
             return await _repository.DeleteAsync(id);
         }
 
-        public async Task<ProductEntity> Get(Guid id)
+        public async Task<ProductEntity> Get(int id)
         {
             return await _repository.GetByIdAsync(id);
         }

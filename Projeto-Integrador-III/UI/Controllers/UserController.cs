@@ -1,5 +1,6 @@
 ﻿using Auth.Service;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PI.Domain.Entities;
 using PI.Domain.Interfaces.Services;
@@ -20,7 +21,7 @@ namespace UI.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("getallusers")]
+        [HttpGet("getallusers"), AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
 
@@ -38,7 +39,7 @@ namespace UI.Controllers
         }
 
         [HttpGet("getuserwithid/{id}", Name = "getuserwithid")]
-        public async Task<IActionResult> GetUser(Guid id)
+        public async Task<IActionResult> GetUser(int id)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -80,7 +81,7 @@ namespace UI.Controllers
         }
 
         [HttpPut("edituser")]
-        public async Task<IActionResult> PutUser([FromBody] Guid userId)
+        public async Task<IActionResult> PutUser([FromBody] int userId)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -100,7 +101,7 @@ namespace UI.Controllers
         }
 
         [HttpDelete("deleteuser/{id}")]
-        public async Task<IActionResult> DeleteUser(Guid id)
+        public async Task<IActionResult> DeleteUser(int id)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

@@ -6,6 +6,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Principal;
+using System.Text;
+using System.Text.Json;
 
 namespace Auth.Service
 {
@@ -19,7 +21,7 @@ namespace Auth.Service
         public AuthService()
         {
             _authRepository = new AuthRepository();
-            _tokenConfig = new TokenConfig();
+            _tokenConfig = new TokenConfig(2,30,8);
             _signingConfig = new SigningConfig();
         }
 
@@ -44,11 +46,11 @@ namespace Auth.Service
                     }
                 );
             DateTime created = DateTime.Now;
-            DateTime expiration = created + TimeSpan.FromSeconds(_tokenConfig.Seconds);
+            DateTime expiration = created + TimeSpan.FromHours(_tokenConfig.Hours);
 
             var handler = new JwtSecurityTokenHandler();
+            //var key = Encoding.UTF8.GetBytes("ChaveGenericaXyZ");
             string token = CreateToken(identity, created, expiration, handler);
-
             return SuccessObject(created, expiration, token, userCheck);
         }
 

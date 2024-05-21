@@ -24,7 +24,7 @@ namespace PI.Data_Access.Repository
         {
             return await _dataset
                 .Where(x => x.Name.Equals(search.Name))
-                .Where(x => x.EAN13.Equals(search.Ean13))
+                .Where(x => x.Category.Equals(search.Category))
                 .Where(x => x.Description.Equals(search.Description))
                 .ToListAsync();
 

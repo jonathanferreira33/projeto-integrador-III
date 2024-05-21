@@ -20,6 +20,8 @@ namespace PI.Data_Access.Context
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<UserEntity>(new UserMap().Configure);
             modelBuilder.Entity<ProductEntity>(new ProductMap().Configure);
+            modelBuilder.Entity<RoleEntity>(new RoleMap().Configure);
+            modelBuilder.Entity<CategoryEntity>(new CategoryMap().Configure);
         }
     }
 }
