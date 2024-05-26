@@ -1,4 +1,5 @@
-﻿using PI.Domain.Entities;
+﻿using PI.Domain.DTOs;
+using PI.Domain.Entities;
 
 namespace PI.Domain.Interfaces
 

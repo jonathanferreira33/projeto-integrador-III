@@ -99,8 +99,7 @@ namespace PI.Data_Access.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_tb_product_Category",
                 table: "tb_product",
-                column: "Category",
-                unique: true);
+                column: "Category");
 
             migrationBuilder.CreateIndex(
                 name: "IX_tb_role_UserEntityId",

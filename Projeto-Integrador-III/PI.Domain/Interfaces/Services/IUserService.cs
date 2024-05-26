@@ -1,4 +1,5 @@
-﻿using PI.Domain.Entities;
+﻿using PI.Domain.DTOs;
+using PI.Domain.Entities;
 using PI.Domain.Request;
 
 namespace PI.Domain.Interfaces.Services

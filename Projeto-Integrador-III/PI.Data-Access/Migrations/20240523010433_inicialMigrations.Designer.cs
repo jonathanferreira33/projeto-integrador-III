@@ -11,7 +11,7 @@ using PI.Data_Access.Context;
 namespace PI.Data_Access.Migrations
 {
     [DbContext(typeof(MySQLContext))]
-    [Migration("20240519111943_inicialMigrations")]
+    [Migration("20240523010433_inicialMigrations")]
     partial class inicialMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -70,8 +70,7 @@ namespace PI.Data_Access.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Category")
-                        .IsUnique();
+                    b.HasIndex("Category");
 
                     b.ToTable("tb_product", (string)null);
                 });

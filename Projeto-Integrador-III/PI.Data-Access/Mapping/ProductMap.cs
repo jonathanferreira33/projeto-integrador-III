@@ -10,7 +10,7 @@ namespace PI.Data_Access.Mapping
         {
             builder.ToTable("tb_product");
             builder.HasKey(x => x.Id);
-            builder.HasIndex(x => x.Category).IsUnique();
+            builder.HasIndex(x => x.Category);
         }
     }
 }

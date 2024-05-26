@@ -2,6 +2,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using PI.Domain.DTOs;
 using PI.Domain.Entities;
 using PI.Domain.Interfaces.Services;
 using PI.Domain.Request;
@@ -65,7 +66,7 @@ namespace UI.Controllers
 
             try
             {
-                var result = await _userService.Post(user);
+                var result = _mapper.Map<UserDto>(await _userService.Post(user));
 
                 if (result == null)
                     return BadRequest();

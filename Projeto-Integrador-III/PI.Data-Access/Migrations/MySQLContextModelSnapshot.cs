@@ -68,8 +68,7 @@ namespace PI.Data_Access.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Category")
-                        .IsUnique();
+                    b.HasIndex("Category");
 
                     b.ToTable("tb_product", (string)null);
                 });

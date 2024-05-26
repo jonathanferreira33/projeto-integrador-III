@@ -31,7 +31,8 @@ namespace UI.Controllers
 
             try
             {
-                return Ok(await _service.GetAll());
+                var listProducts = await _service.GetAll();
+                return Ok(listProducts);
             }
             catch (Exception e)
             {
@@ -56,7 +57,7 @@ namespace UI.Controllers
         }
 
         [HttpPost("createproduct")]
-        public async Task<IActionResult> PostProduct([FromBody] ProductRequest productRequest)
+        public async Task<IActionResult> PostProduct(ProductRequest productRequest)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -104,7 +105,7 @@ namespace UI.Controllers
         }
 
         [HttpPut("quantitychange")]
-        public async Task<IActionResult> QuantityChange([FromBody] ProductRequest productRequest)
+        public async Task<IActionResult> QuantityChange([FromBody] QuantityChangeRequest productRequest)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -115,7 +116,9 @@ namespace UI.Controllers
                 if (product == null)
                     return NotFound("Produto não encontrado!");
 
-                return Ok(await _service.QuantityChange(product, productRequest.Amount));
+                var edit = await _service.QuantityChange(product, productRequest.Amount);
+
+                return Ok(edit);
             }
             catch (Exception e)
             {

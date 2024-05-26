@@ -12,11 +12,7 @@ namespace PI.Service
         {
             _repository = repository;
         }
-        public async Task<bool> Delete(int id)
-        {
-            return await _repository.DeleteAsync(id);
-        }
-
+    
         public async Task<ProductEntity> Get(int id)
         {
             return await _repository.GetByIdAsync(id);
@@ -29,13 +25,17 @@ namespace PI.Service
 
         public async Task<ProductEntity> Post(ProductEntity productRequest)
         {
-            var newProduct = await _repository.CreateAsync(productRequest);
-            return newProduct;
+            return await _repository.CreateAsync(productRequest);
         }
 
         public async Task<ProductEntity> Put(ProductEntity product)
         {
             return await _repository.UpdateAsync(product);
+        }
+
+        public async Task<bool> Delete(int id)
+        {
+            return await _repository.DeleteAsync(id);
         }
 
         public async Task<ProductEntity> QuantityChange(ProductEntity product, int amount)
